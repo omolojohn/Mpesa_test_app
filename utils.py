@@ -47,6 +47,4 @@ def lipa_na_mpesa_online(phone_number, amount):
     }
 
     response = requests.post(api_url, json=payload, headers=headers)
-    print("STK Push API response:", response.status_code, response.text)
-
     return response.json()
