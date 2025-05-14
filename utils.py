@@ -47,4 +47,17 @@ def lipa_na_mpesa_online(phone_number, amount):
     }
 
     response = requests.post(api_url, json=payload, headers=headers)
-    return response.json()
+    response_data = response.json()
+
+    if response.status_code == 200 and response_data.get("ResponseCode") == "0":
+        return {
+            "success": True,
+            "message": "Payment request sent successfully. Please enter your M-Pesa PIN when prompted on your phone."
+        }
+    else:
+        return {
+            "success": False,
+            "message": "Payment failed. Please try again.",
+            "error": response_data.get("errorMessage", "Unknown error") 
+            
+        }
