@@ -3,14 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Payment Failed</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .container {
+            margin-top: 50px;
+            max-width: 500px;
+            background-color: #878b87;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
 <body>
-    <h2>❌ Payment Failed. Please check and try again</h2>
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            <p style="color:red;">{{ messages[0] }}</p>
-        {% endif %}
-    {% endwith %}
-    <a href="/">← Try Again</a>
+    <div class="container">
+        <h2>❌ Payment Failed. Please check and try again</h2>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <p style="color:red;">{{ messages[0] }}</p>
+            {% endif %}
+        {% endwith %}
+        <a href="/">← Try Again</a>
+    </div>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
